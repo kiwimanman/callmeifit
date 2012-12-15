@@ -8,9 +8,9 @@
 <body>
   <div class="navbar">
     <div class="navbar-inner">
-      <a class="brand" href="#">callmeif.it/</a>
+      <%= link_to "callmeif.it/", launches_path, :class => 'brand' %>
       <ul class="nav">
-        <li class="active"><a href="#">Launches</a></li>
+        <li class="active"><%= link_to "Launces", launches_path %></li>
       </ul>
     </div>
   </div>

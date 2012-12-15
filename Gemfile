@@ -10,6 +10,7 @@ gem 'pg'
 gem 'bigdecimal'
 gem 'thin'
 gem "twitter-bootstrap-rails"
+gem 'omniauth-facebook'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -38,4 +39,4 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+gem 'debugger'
