@@ -3,12 +3,18 @@
 <head>
   <title>callmeif.it</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="#">callmeif.it/</a>
+      <ul class="nav">
+        <li class="active"><a href="#">Launches</a></li>
+      </ul>
+    </div>
+  </div>
+  <%= yield %>
+  <%= javascript_include_tag "application" %>
 </body>
 </html>
