@@ -1,4 +1,5 @@
 Callmeifit::Application.routes.draw do
+  resources :ski_resorts, :path => 'snows'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -25,7 +26,7 @@ Callmeifit::Application.routes.draw do
   #     end
   #   end
 
-  # Sample resource route with sub-resources:
+  # Sample resrurce route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
   #     resource :seller

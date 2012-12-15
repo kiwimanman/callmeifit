@@ -1,0 +1,3 @@
+class SkiResortsController < ApplicationController
+
+end
