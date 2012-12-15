@@ -1,4 +1,6 @@
 Callmeifit::Application.routes.draw do
+  root :to => 'launches#root'
+  resources :launches
   resources :ski_resorts, :path => 'snows'
   # The priority is based upon order of creation:
   # first created -> highest priority.
