@@ -11,3 +11,8 @@
  *= require_self
  *= require_tree .
  */
+
+.login_logo {
+  width: 14px;
+  vertical-align: baseline;
+}

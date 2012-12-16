@@ -11,6 +11,10 @@
       </ul>
     </li>
   <% else %>
-    <li><%= link_to 'Log In', '/auth/facebook' %></li>
+    <li>
+      <%= link_to '/auth/facebook' do %>
+        Log In <%= image_tag 'f_logo.png', :class => 'login_logo' %>
+      <% end %>
+    </li>
   <% end %>
 </ul>
