@@ -18,15 +18,21 @@
         <%= link_to "callmeif.it/", launches_path, :class => 'brand' %>
         <div class="nav-collapse collapse">
           <ul class="nav">
-            <li class="active"><%= link_to "Launces", launches_path %></li>
+            <li class="active"><%= link_to "Launches", launches_path %></li>
           </ul>
-          <%= render :partial => 'nav/logged_in_controls', :object => @user, :as => :user %>
+          <%= render :partial => 'nav/logged_in_controls', :object => @logged_in_user, :as => :user %>
         </div>
         
       </div>
     </div>
   </div>
-  <%= yield %>
+  <div class="container">
+    <div class="row">
+      <div class="span12">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
   <%= javascript_include_tag "application" %>
 </body>
 </html>

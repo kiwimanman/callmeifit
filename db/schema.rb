@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121215081207) do
+ActiveRecord::Schema.define(:version => 20121216033146) do
 
   create_table "facebook_keys", :force => true do |t|
     t.integer  "user_id"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(:version => 20121215081207) do
     t.text     "extra"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "phones", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "international"
+    t.string   "number"
+    t.string   "extension"
+    t.boolean  "verified"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "users", :force => true do |t|

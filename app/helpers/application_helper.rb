@@ -1,5 +1,5 @@
 module ApplicationHelper
   def logged_in?
-    @user && @user.id == session['user_id']
+    @logged_in_user && @logged_in_user.id == session['user_id']
   end
 end

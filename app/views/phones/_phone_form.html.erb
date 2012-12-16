@@ -1,0 +1,17 @@
+<%= form_for phone, :html => { :class => '.form-inline' } do |f| %>
+  <div class="controls span5">
+    <div class="input-append">
+      <%= f.text_field :number, :placeholder => 'Phone Number', :class => 'input-block-level' %> 
+      <%= f.submit 'Save', :class => 'btn' %>
+    </div>
+    <% unless phone.errors.blank? %>
+      <div class="alert alert-error">
+        <ul>
+          <% phone.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+<% end %>

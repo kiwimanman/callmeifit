@@ -16,3 +16,8 @@
   width: 14px;
   vertical-align: baseline;
 }
+
+/* Fixes form errors */
+form .clearfix:before, form .clearfix:after {
+  display: inline;
+}
