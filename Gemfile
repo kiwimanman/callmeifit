@@ -9,7 +9,6 @@ gem 'foreman'
 gem 'pg'
 gem 'bigdecimal'
 gem 'thin'
-gem "twitter-bootstrap-rails"
 gem 'omniauth-facebook'
 
 # Gems used only for assets and not required
