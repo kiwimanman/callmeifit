@@ -42,4 +42,14 @@ class PhonesController < ApplicationController
 
     redirect_to @logged_in_user
   end
+
+  def confirm
+    @phone = Phone.find(params[:id])
+    if @phone.verifation_confirmed? params[:code]
+      @phone.save
+      redirect_to @logged_in_user
+    else
+      flash[:code_confirm_error] = true
+    end
+  end
 end

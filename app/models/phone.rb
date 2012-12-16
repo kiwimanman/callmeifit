@@ -24,4 +24,9 @@ class Phone < ActiveRecord::Base
   def generate_verification_token
     self.verification_token ||= 5.times.map{ Random.rand(10).to_s }.join
   end
+
+  def verifation_confirmed?(value)
+    self.verified = true if verification_token == value
+    self.verified
+  end
 end
