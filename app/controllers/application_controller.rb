@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_logged_in_user
-    redirect_to login_path if session[:user_id].blank?
+    redirect_to '/auth/facebook' if session[:user_id].blank?
   end
 
   def initialize_twilio
