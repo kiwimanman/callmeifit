@@ -15,7 +15,7 @@
       <% @user.phones.each do |phone| %>
         <tr>
           <td><%= phone.number %></td>
-          <td><%= link_to 'Verify', verify_phone_path(phone), :class => 'btn btn-small btn-primary' %></td>
+          <td><%= render partial: 'phones/show_verification', object: phone, as: :phone %></td>
           <td><%= link_to 'Delete', phone, :class => 'btn btn-small', :confirm => "Are you sure?", :method => :delete %></td>
         </tr>
       <% end %>

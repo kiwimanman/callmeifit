@@ -16,4 +16,12 @@ class Phone < ActiveRecord::Base
     self.international ||= 1
     self.verified      ||= false
   end
+
+  def twilio_formatted
+    "+#{international}#{number}"
+  end
+
+  def generate_verification_token
+    self.verification_token ||= 5.times.map{ Random.rand(10).to_s }.join
+  end
 end

@@ -10,4 +10,8 @@ class ApplicationController < ActionController::Base
   def require_logged_in_user
     redirect_to login_path if session[:user_id].blank?
   end
+
+  def initialize_twilio
+    @twilio_account = Twilio::REST::Client.new(ENV['TWILIO_SID'], ENV['TWILIO_TOKEN']).account
+  end
 end
