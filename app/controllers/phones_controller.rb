@@ -1,5 +1,5 @@
 class PhonesController < ApplicationController
-  before_filter :require_logged_in_user
+  before_filter :require_logged_in_user, :except => :with_code
   before_filter :initialize_twilio, :only => :verify
 
   def new
