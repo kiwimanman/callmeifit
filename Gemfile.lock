@@ -57,6 +57,9 @@ GEM
       thor (>= 0.13.6)
     hashie (1.2.0)
     hike (1.2.1)
+    honeybadger (1.4.0)
+      activesupport
+      json
     httpauth (0.2.0)
     i18n (0.6.1)
     journey (1.0.4)
@@ -154,6 +157,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   debugger
   foreman
+  honeybadger
   jquery-rails
   nokogiri
   omniauth-facebook
