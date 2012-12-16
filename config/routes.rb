@@ -4,7 +4,7 @@ Callmeifit::Application.routes.draw do
   resources :users
   resources :phones, do
     collection do
-      match 'with_code'
+      match 'with_code/:code' => 'phones#with_code', :as => 'with_code'
     end
     member do
       get  'verify'

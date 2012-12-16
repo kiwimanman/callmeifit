@@ -30,7 +30,7 @@ class PhonesController < ApplicationController
       @call = @twilio_account.calls.create(
         :from => ENV['TWILIO_PHONE'],
         :to => @phone.twilio_formatted,
-        :url => with_code_phones_url(:code => @phone.verification_token)
+        :url => with_code_phones_url(:code => @phone.verification_token, :format => :xml)
       )
     else
       response = @twilio_account.sms.messages.create(
@@ -41,13 +41,5 @@ class PhonesController < ApplicationController
     end
 
     redirect_to @logged_in_user
-  end
-
-  def with_code
-    unless params[:code]
-      render :text => 'Nope', :status => 404
-    else
-      render :layout => false
-    end
   end
 end
