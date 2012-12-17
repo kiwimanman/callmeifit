@@ -1,3 +1,4 @@
+<% ski_resort_counter = 0 if ski_resort_counter.nil? %>
 <div class="accordion-group">
   <div class="accordion-heading">
     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= ski_resort_counter %>">
@@ -16,7 +17,7 @@
           <p><strong>You need to log in so we can call you.</strong><br><%= link_to 'Sign in with facebook.', '/auth/facebook' %></p>
         </div>
       <% else %>
-        <form class="form-horizontal span6">
+        <%= form_tag ski_resort_path(ski_resort), :method => "put", :class => "form-horizontal span6" do %>
           <div class="well">
             <div class="control-group">
               callmeif.it <strong>snows</strong>
@@ -29,7 +30,7 @@
             <%= render :partial => 'users/phone_chooser', :object => @logged_in_user, :as => :user %>
             <button type="submit" class="btn btn-primary">Do it!</button>
           </div>
-        </form>
+        <% end %>
      <% end %>
     </div>
   </div>

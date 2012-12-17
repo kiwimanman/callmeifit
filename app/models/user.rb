@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :facebook_keys
   has_many :phones
+  has_many :snow_events
 
   def verified_phones
     phones.select{ |phone| phone.verified? }

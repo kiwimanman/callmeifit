@@ -1,5 +1,5 @@
 class LaunchesController < ApplicationController
   def root
-    redirect_to launches_path
+    redirect_to ski_resorts_path
   end 
 end

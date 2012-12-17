@@ -18,11 +18,12 @@
         <%= link_to "callmeif.it", launches_path, :class => 'brand' %>
         <div class="nav-collapse collapse">
           <ul class="nav">
-            <li class="active"><%= link_to "/launches", launches_path %></li>
-            <li class="active"><%= link_to "/snows", launches_path %></li>
-            <li class="active"><%= link_to "/the/game/is/close", launches_path %></li>
-            <li class="active"><%= link_to "/goes/on/sale", launches_path %></li>
-            <li class="active"><%= link_to "/hits", launches_path %></li>
+            <li class="active"><%= link_to "/snows", ski_resorts_path %></li>
+            <% if false && 'awesome ideas' %>
+              <li class="active"><%= link_to "/the/game/is/close", launches_path %></li>
+              <li class="active"><%= link_to "/goes/on/sale", launches_path %></li>
+              <li class="active"><%= link_to "/hits", launches_path %></li>
+            <% end %>
           </ul>
           <%= render :partial => 'nav/logged_in_controls', :object => @logged_in_user, :as => :user %>
         </div>

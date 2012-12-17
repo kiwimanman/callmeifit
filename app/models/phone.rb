@@ -1,5 +1,6 @@
 class Phone < ActiveRecord::Base
   belongs_to :user
+  has_many :snow_events
 
   attr_accessible :number
 
