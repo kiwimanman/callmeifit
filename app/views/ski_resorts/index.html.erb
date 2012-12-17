@@ -1,0 +1,12 @@
+<% unless logged_in? %>
+  <div class="alert alert-warning">
+    <p><strong>You need to log in first.</strong> <%= link_to 'Sign in with facebook.', '/auth/facebook' %></p>
+  </div>
+<% end %>
+<div class="row">
+  <div class="span12">
+    <div class="accordion" id="accordion">
+      <%= render @resorts %>
+    </div>
+  </div>
+</div>

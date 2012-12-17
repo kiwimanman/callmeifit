@@ -1,0 +1,36 @@
+<div class="accordion-group">
+  <div class="accordion-heading">
+    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= ski_resort_counter %>">
+      <%= ski_resort.name %>
+    </a>
+  </div>
+  <div id="collapse<%= ski_resort_counter %>" class="accordion-body collapse<%= ' in' if ski_resort_counter == 0 %>">
+    <div class="accordion-inner">
+      <%= image_tag ski_resort.webcam_url, :class => 'webcam pull-right span4' %>
+      <address class="span4">
+        <%= [ski_resort.address_line1, ski_resort.address_line2, ski_resort.address_location].compact.join('<br>').html_safe %>
+      </address>
+
+      <% if !logged_in? %>
+        <div class="alert alert-error span4">
+          <p><strong>You need to log in so we can call you.</strong><br><%= link_to 'Sign in with facebook.', '/auth/facebook' %></p>
+        </div>
+      <% else %>
+        <form class="form-horizontal span6">
+          <div class="well">
+            <div class="control-group">
+              callmeif.it <strong>snows</strong>
+              <select id="threshold" name="threshold" class="input-mini">
+                <% 24.times do |i| %>
+                  <option><%= i + 1 %></option>
+                <% end %>
+              </select> inch(es) here in a night.
+            </div>
+            <%= render :partial => 'users/phone_chooser', :object => @logged_in_user, :as => :user %>
+            <button type="submit" class="btn btn-primary">Do it!</button>
+          </div>
+        </form>
+     <% end %>
+    </div>
+  </div>
+</div>
