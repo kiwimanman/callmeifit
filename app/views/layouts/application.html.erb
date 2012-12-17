@@ -15,10 +15,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </a>
-        <%= link_to "callmeif.it/", launches_path, :class => 'brand' %>
+        <%= link_to "callmeif.it", launches_path, :class => 'brand' %>
         <div class="nav-collapse collapse">
           <ul class="nav">
-            <li class="active"><%= link_to "Launches", launches_path %></li>
+            <li class="active"><%= link_to "/launches", launches_path %></li>
+            <li class="active"><%= link_to "/snows", launches_path %></li>
+            <li class="active"><%= link_to "/the/game/is/close", launches_path %></li>
+            <li class="active"><%= link_to "/goes/on/sale", launches_path %></li>
+            <li class="active"><%= link_to "/hits", launches_path %></li>
           </ul>
           <%= render :partial => 'nav/logged_in_controls', :object => @logged_in_user, :as => :user %>
         </div>
