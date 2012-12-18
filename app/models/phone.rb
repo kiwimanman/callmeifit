@@ -38,4 +38,24 @@ class Phone < ActiveRecord::Base
     self.verified = true if verification_token == value
     self.verified
   end
+
+  def self.send_verification(msg)
+    twilio_account = Twilio::REST::Client.new(ENV['TWILIO_SID'], ENV['TWILIO_TOKEN']).account
+
+    phone = Phone.find(msg[:phone_id])
+
+    if msg[:method] == :call
+      twilio_account.calls.create(
+        :from => ENV['TWILIO_PHONE'],
+        :to => phone.twilio_formatted,
+        :url => "http://www.callmeif.it/phones/with_code/#{phone.verification_token}.xml"
+      )
+    else
+      twilio_account.sms.messages.create(
+        :from => ENV['TWILIO_PHONE'],
+        :to => phone.twilio_formatted,
+        :body => "Your verfication code is: #{phone.verification_token}"
+      )
+    end
+  end
 end

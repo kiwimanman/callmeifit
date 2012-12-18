@@ -26,19 +26,7 @@ class PhonesController < ApplicationController
     @phone.generate_verification_token
     @phone.save
 
-    if params[:call]
-      @call = @twilio_account.calls.create(
-        :from => ENV['TWILIO_PHONE'],
-        :to => @phone.twilio_formatted,
-        :url => with_code_phones_url(:code => @phone.verification_token, :format => :xml)
-      )
-    else
-      response = @twilio_account.sms.messages.create(
-        :from => ENV['TWILIO_PHONE'],
-        :to => @phone.twilio_formatted,
-        :body => "Your verfication code is: #{@phone.verification_token}"
-      )
-    end
+    PHONE_VERIFICATION_QUEUE.push(:method => (params[:call] ? :call : :sms), :phone_id => @phone.id)
 
     redirect_to @logged_in_user
   end

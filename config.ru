@@ -1,2 +1,6 @@
 require ::File.expand_path('../config/environment', __FILE__)
-run Callmeifit::Application
+require 'girl_friday/server'
+
+run Rack::URLMap.new \
+  "/"       => Callmeifit::Application,
+  "/girl_friday" => GirlFriday::Server.new

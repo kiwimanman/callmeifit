@@ -14,6 +14,12 @@ gem 'nokogiri'
 gem 'twilio-ruby'
 gem 'honeybadger'
 
+# Background working
+gem 'redis'
+gem 'girl_friday'
+gem 'sinatra'
+gem 'connection_pool'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
