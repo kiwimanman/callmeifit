@@ -1,5 +1,3 @@
-require 'open-uri'
-
 class SkiResort < ActiveRecord::Base
   has_many :snow_events
 
