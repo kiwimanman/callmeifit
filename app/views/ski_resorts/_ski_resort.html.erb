@@ -27,6 +27,9 @@
                 <% end %>
               </select> inch(es) here in a night.
             </div>
+            <div>
+              Current snow fall: <%= ski_resort.value %> inche(es)
+            </div>
             <%= render :partial => 'users/phone_chooser', :object => @logged_in_user, :as => :user %>
             <button type="submit" class="btn btn-primary">Do it!</button>
           </div>

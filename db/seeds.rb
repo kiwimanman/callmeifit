@@ -14,6 +14,9 @@ resort.address_location = "Skykomish, WA 98288"
 resort.website = "http://www.stevenspass.com/"
 resort.image_url = "http://www.stevenspass.com/Stevens/SiteBase/wrap/theme2/images/logo.png"
 resort.webcam_url = "http://www.stevenspass.com/Stevens/SiteAssets/_ftp/webcam/stevenspass.jpg"
+resort.scrape_url = "http://www.stevenspass.com/Stevens/snowreport.aspx"
+resort.scrape_selector = '#cmtContent table:nth-of-type(2) tr:nth-of-type(3) td:last-child'
+resort.scrape_regex = '^(?<value>\d+)'
 resort.save
 
 resort = SkiResort.find_or_create_by_name('Crystal Mountain')
@@ -22,4 +25,7 @@ resort.address_location = "Snoqualmie National Forest, Enumclaw, WA 98022"
 resort.website = "http://crystalmountainresort.com/"
 resort.image_url = "http://www.outdoorsforall.org/images/Logos/Logo_Crystal.jpg"
 resort.webcam_url = "http://crystalmountainresort.com/images/webcams/cmsnowcam2.jpg"
+resort.scrape_url = "http://crystalmountainresort.com/The-Mountain/mountain_report"
+resort.scrape_selector = '#weather-conditions2 div:nth-of-type(3) div:nth-of-type(2) tr:first-child .standard'
+resort.scrape_regex = '^(?<value>\d+)'
 resort.save
