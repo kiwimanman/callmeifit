@@ -1,7 +1,5 @@
 Callmeifit::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
-  config.logger = Logger.new(STDOUT)
-  config.logger.level = Logger.const_get((ENV["LOG_LEVEL"] || "INFO").upcase)
 
   # Code is not reloaded between requests
   config.cache_classes = true

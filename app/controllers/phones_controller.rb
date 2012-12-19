@@ -25,7 +25,7 @@ class PhonesController < ApplicationController
     @phone = Phone.find(params[:id])
     @phone.generate_verification_token
     @phone.save
-
+    
     PHONE_VERIFICATION_QUEUE.push(:method => (params[:call] ? :call : :sms), :phone_id => @phone.id)
 
     redirect_to @logged_in_user

@@ -1,6 +1,6 @@
 require 'connection_pool'
 
-uri = URI.parse(ENV["REDISCLOUD_URL"])
+uri = URI.parse(ENV["REDISCLOUD_URL"] || 'redis://rediscloud@localhost:6379')
 
 redis_params = { :host => uri.host, :port => uri.port, :password => uri.password }
 redis_params.delete(:password) if Rails.env == "development"

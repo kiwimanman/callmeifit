@@ -8,7 +8,6 @@ gem 'rails', '3.2.9'
 gem 'foreman'
 gem 'pg'
 gem 'bigdecimal'
-gem 'thin'
 gem 'omniauth-facebook'
 gem 'nokogiri'
 gem 'twilio-ruby'
@@ -41,7 +40,7 @@ gem 'jquery-rails'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
