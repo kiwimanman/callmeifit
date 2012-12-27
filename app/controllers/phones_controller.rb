@@ -1,6 +1,5 @@
 class PhonesController < ApplicationController
   before_filter :require_logged_in_user, :except => :with_code
-  before_filter :initialize_twilio, :only => :verify
 
   def new
     @phone = Phone.new
@@ -26,7 +25,9 @@ class PhonesController < ApplicationController
     @phone.generate_verification_token
     @phone.save
     
-    PHONE_VERIFICATION_QUEUE.push(:method => (params[:call] ? :call : :sms), :phone_id => @phone.id)
+    msg = { :method => (params[:call] ? :call : :sms), :phone_id => @phone.id }
+    Rails.logger.info("Queueing phone #{msg}")
+    PHONE_VERIFICATION_QUEUE.push(msg)
 
     redirect_to @logged_in_user
   end
