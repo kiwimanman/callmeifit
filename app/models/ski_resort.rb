@@ -4,9 +4,7 @@ class SkiResort < ActiveRecord::Base
   def scrape_value!
     puts scrape_url
     scrape = Nokogiri::HTML(open(scrape_url))
-    puts scrape
     scraped_value = scrape.at_css(scrape_selector).children.first.text
-    puts scraped_value
     match = scraped_value.match(Regexp.new(scrape_regex))
     puts match
     if match && match[:value]

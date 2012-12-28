@@ -3,6 +3,9 @@ namespace :resorts do
   task :update => :environment do
     require 'girl_friday/queues'
     
+    # Runs task in task process only.
+    GirlFriday::Queue.immediate!
+    
     SkiResort.find_each do |resort|
       puts "Pushing #{resort.id}"
       ::RESORT_UPDATE_QUEUE.push(:resort_id => resort.id)
