@@ -1,7 +1,7 @@
 require 'connection_pool'
 
 redis_pool = ConnectionPool.new(:size => 1, :timeout => 5) {
-  Redis.new url: ENV['MYREDIS_URL']
+  Redis.new url: ENV['REDISTOGO_URL']
 }
 
 queue_defaults = {
