@@ -15,6 +15,7 @@ gem 'honeybadger'
 
 # Background working
 gem 'redis'
+gem 'hiredis'
 #gem 'girl_friday', :path => '../girl_friday'
 gem 'girl_friday'
 gem 'sinatra'
