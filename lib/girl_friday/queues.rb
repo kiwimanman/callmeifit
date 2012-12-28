@@ -1,6 +1,6 @@
 require 'connection_pool'
 
-redis_pool = ConnectionPool.new(:size => 5, :timeout => 5) {
+redis_pool = ConnectionPool.new(:size => 1, :timeout => 5) {
   Redis.new url: ENV['MYREDIS_URL']
 }
 
