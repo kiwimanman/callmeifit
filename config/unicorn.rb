@@ -20,4 +20,5 @@ after_fork do |server, worker|
 	end
 
 	require 'girl_friday/queues'
+	GirlFriday.begin_polling
 end

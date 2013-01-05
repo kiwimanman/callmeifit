@@ -28,5 +28,3 @@ queue_defaults = {
   Rails.logger.info("DEBUG: Updating resort #{resort.id} to #{resort.value}")
 end
 
-GirlFriday.begin_polling
-
