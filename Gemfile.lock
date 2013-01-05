@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:kiwimanman/girl_friday.git
+  remote: git://github.com/kiwimanman/girl_friday.git
   revision: 4cfdc66ad6700af1dfbd360c70ff7c6822aa54ed
   specs:
     girl_friday (0.11.1)
