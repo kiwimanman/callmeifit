@@ -16,8 +16,8 @@ gem 'honeybadger'
 # Background working
 gem 'redis'
 gem 'hiredis'
-#gem 'girl_friday', :path => '../girl_friday'
-gem 'girl_friday'
+gem 'girl_friday', :git => 'git@github.com:kiwimanman/girl_friday.git'
+#gem 'girl_friday'
 gem 'sinatra'
 gem 'connection_pool'
 

@@ -1,3 +1,11 @@
+GIT
+  remote: git@github.com:kiwimanman/girl_friday.git
+  revision: 4cfdc66ad6700af1dfbd360c70ff7c6822aa54ed
+  specs:
+    girl_friday (0.11.1)
+      connection_pool (~> 0.9.0)
+      rubinius-actor
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -54,9 +62,6 @@ GEM
       multipart-post (~> 1.1)
     foreman (0.60.2)
       thor (>= 0.13.6)
-    girl_friday (0.11.1)
-      connection_pool (~> 0.9.0)
-      rubinius-actor
     hashie (1.2.0)
     hike (1.2.1)
     hiredis (0.4.5)
@@ -173,7 +178,7 @@ DEPENDENCIES
   connection_pool
   debugger
   foreman
-  girl_friday
+  girl_friday!
   hiredis
   honeybadger
   jquery-rails
