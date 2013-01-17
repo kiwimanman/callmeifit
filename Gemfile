@@ -11,7 +11,6 @@ gem 'bigdecimal'
 gem 'omniauth-facebook'
 gem 'nokogiri'
 gem 'twilio-ruby'
-gem 'honeybadger'
 gem 'newrelic_rpm'
 
 # Background working

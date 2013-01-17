@@ -1,9 +1,9 @@
 GIT
   remote: git://github.com/kiwimanman/girl_friday.git
-  revision: 4439f415cdb23aa2c1585c90b343379cf517e989
+  revision: 66b49a790ef80644614be9be542e32ec8e05e67e
   specs:
-    girl_friday (0.11.1)
-      connection_pool (~> 0.9.0)
+    girl_friday (0.11.2)
+      connection_pool (~> 1.0)
       rubinius-actor
 
 GEM
@@ -47,7 +47,7 @@ GEM
       execjs
     coffee-script-source (1.4.0)
     columnize (0.3.6)
-    connection_pool (0.9.3)
+    connection_pool (1.0.0)
     debugger (1.2.3)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.1.1)
@@ -60,14 +60,11 @@ GEM
       multi_json (~> 1.0)
     faraday (0.8.4)
       multipart-post (~> 1.1)
-    foreman (0.60.2)
+    foreman (0.61.0)
       thor (>= 0.13.6)
     hashie (1.2.0)
     hike (1.2.1)
     hiredis (0.4.5)
-    honeybadger (1.4.0)
-      activesupport
-      json
     httpauth (0.2.0)
     i18n (0.6.1)
     journey (1.0.4)
@@ -86,7 +83,7 @@ GEM
     mime-types (1.19)
     multi_json (1.5.0)
     multipart-post (1.1.5)
-    newrelic_rpm (3.5.4.34)
+    newrelic_rpm (3.5.5.38)
     nokogiri (1.5.6)
     oauth2 (0.8.0)
       faraday (~> 0.8)
@@ -104,7 +101,7 @@ GEM
       omniauth (~> 1.0)
     pg (0.14.1)
     polyglot (0.3.3)
-    rack (1.4.3)
+    rack (1.4.4)
     rack-cache (1.2)
       rack (>= 0.4)
     rack-protection (1.3.2)
@@ -137,7 +134,7 @@ GEM
       rubinius-core-api
     rubinius-core-api (0.0.1)
     sass (3.2.5)
-    sass-rails (3.2.5)
+    sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
@@ -181,7 +178,6 @@ DEPENDENCIES
   foreman
   girl_friday!
   hiredis
-  honeybadger
   jquery-rails
   newrelic_rpm
   nokogiri
