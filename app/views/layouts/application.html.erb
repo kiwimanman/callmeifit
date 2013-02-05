@@ -3,7 +3,12 @@
 <head>
   <title>callmeif.it</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <meta charset="UTF-8" />
+  <meta name="google" value="notranslate" />
+  <meta http-equiv="Content-Language" content="en" />
+  <meta name="keywords" content="snow report call me if notification text" />
+  <meta name="description" content="Keep up on the snow fall of your favorate ski resorts with call or text notifications. Be the first to know in the morning so you can call in sick and get shredding at a moments notice." />
+  <%= stylesheet_link_tag "application", :media => "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -20,7 +25,7 @@
           <ul class="nav">
             <li class="active"><%= link_to "/snows", ski_resorts_path %></li>
             <% if false && :awesome_ideas %>
-              <li class="active"><%= link_to "/the/game/is/close", launches_path %></li>
+              <li class="active"><%= link_to "/gets/close", launches_path %></li>
               <li class="active"><%= link_to "/goes/on/sale", launches_path %></li>
               <li class="active"><%= link_to "/hits", launches_path %></li>
             <% end %>
