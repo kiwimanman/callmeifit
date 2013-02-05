@@ -16,7 +16,7 @@ class SkiResortsController < ApplicationController
     end
 
     snow_event.threshold = params[:threshold]
-    snow_event.phone = @logged_in_user.verified_phone
+    snow_event.phone_number = @logged_in_user.verified_phone.phone_number
 
     if snow_event.save
       redirect_to ski_resort_path(params[:id])

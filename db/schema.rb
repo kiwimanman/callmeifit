@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121218044451) do
+ActiveRecord::Schema.define(:version => 20130117060911) do
 
   create_table "facebook_keys", :force => true do |t|
     t.integer  "user_id"
@@ -54,10 +54,10 @@ ActiveRecord::Schema.define(:version => 20121218044451) do
   create_table "snow_events", :force => true do |t|
     t.integer  "user_id"
     t.integer  "ski_resort_id"
-    t.integer  "phone_id"
     t.text     "threshold"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.text     "phone_number"
   end
 
   create_table "users", :force => true do |t|

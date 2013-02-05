@@ -3,12 +3,12 @@ class SessionsController < ApplicationController
     facebook_key = FacebookKey.find_or_create_from_auth_hash(auth_hash)
     session[:user_id] = facebook_key.user.id if facebook_key
 
-    redirect_to launches_path
+    redirect_to ski_resorts_path
   end
 
   def logout
     session[:user_id] = nil
-    redirect_to launches_path
+    redirect_to ski_resorts_path
   end
 
   protected
