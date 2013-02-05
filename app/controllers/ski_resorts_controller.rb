@@ -7,6 +7,10 @@ class SkiResortsController < ApplicationController
     @resort = SkiResort.find(params[:id])
   end
 
+  def notify
+    @resort = SkiResort.find(params[:id])
+  end
+
   def update
     snow_event = SnowEvent.where(:user_id => @logged_in_user.id, :ski_resort_id => params[:id]).first
     if snow_event.blank?
