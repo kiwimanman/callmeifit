@@ -21,10 +21,23 @@ queue_defaults = {
 }
 
 ::RESORT_UPDATE_QUEUE = GirlFriday::WorkQueue.new(:resort_update, queue_defaults) do |msg|
-  Rails.logger.info("DEBUG: Updating resort #{msg[:resort_id]}")
   resort = SkiResort.find(msg[:resort_id])
-  Rails.logger.info("DEBUG: Updating resort #{resort.id} from #{resort.value}")
   resort.scrape_value!
-  Rails.logger.info("DEBUG: Updating resort #{resort.id} to #{resort.value}")
 end
 
+queue_defaults = {
+  :size => ENV["WORKER"] == 'true' ? 1 : 0,
+  :store => GirlFriday::Store::Redis,
+  :store_config => { :pool => redis_pool },
+}
+
+::SNOW_CONTACT_QUEUE = GirlFriday::WorkQueue.new(:snow_contact, queue_defaults) do |msg|
+  controller = ApplicationController.new
+  client = controller.initialize_twilio
+  phone = Phone.find_by_number(msg[:phone])
+  @call = client.account.calls.create(
+    :from => ENV['TWILIO_PHONE'],
+    :to => phone.twilio_formatted,
+    :url => "http://www.callmeif.it/snows/#{msg[:ski_resort]}.xml"
+  )
+end

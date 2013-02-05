@@ -8,6 +8,11 @@ class SkiResort < ActiveRecord::Base
     if match && match[:value]
       self.value = match[:value] 
       save
+      SnowEvent.find_all_by_ski_resort_id(1).each do |event|
+        if event.threshold <= value && event.contactable_time? && !event.contacted_today?
+          event.make_contact
+        end
+      end
       logger.info "Saving scrape for #{name}"
     end
     logger.info "Ending scrape for #{name}"
