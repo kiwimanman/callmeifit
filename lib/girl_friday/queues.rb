@@ -38,6 +38,6 @@ queue_defaults = {
   @call = client.account.calls.create(
     :from => ENV['TWILIO_PHONE'],
     :to => phone.twilio_formatted,
-    :url => "http://www.callmeif.it/snows/#{msg[:ski_resort]}.xml"
+    :url => "http://www.callmeif.it/snows/#{msg[:ski_resort]}/notify.xml"
   )
 end
