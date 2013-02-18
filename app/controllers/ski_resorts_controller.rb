@@ -1,10 +1,10 @@
 class SkiResortsController < ApplicationController
   def index
-    @resorts = SkiResort.all
+    @resorts = SkiResort.find(:all, :include => :snow_events)
   end
 
   def show
-    @resort = SkiResort.find(params[:id])
+    @resort = SkiResort.find(params[:id], :include => :snow_events)
   end
 
   def notify

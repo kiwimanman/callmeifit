@@ -17,4 +17,10 @@ class SkiResort < ActiveRecord::Base
     end
     logger.info "Ending scrape for #{name}"
   end
+
+  def registered_by_user?(user)
+    snow_events.find do |se|
+      se.user_id == user.id
+    end unless user.nil?
+  end
 end

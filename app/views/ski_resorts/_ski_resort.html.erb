@@ -2,7 +2,10 @@
 <div class="accordion-group">
   <div class="accordion-heading">
     <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse<%= ski_resort_counter %>">
-      <%= ski_resort.name %>
+      <% if ski_resort.registered_by_user? @logged_in_user %>
+        <i class="icon-heart"></i>
+      <% end %>
+      <%= ski_resort.name %> <%=  %>
     </a>
   </div>
   <div id="collapse<%= ski_resort_counter %>" class="accordion-body collapse<%= ' in' if ski_resort_counter == 0 %>">
