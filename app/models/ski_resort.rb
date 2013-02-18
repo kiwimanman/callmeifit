@@ -18,9 +18,10 @@ class SkiResort < ActiveRecord::Base
     logger.info "Ending scrape for #{name}"
   end
 
-  def registered_by_user?(user)
+  def registered_event(user)
     snow_events.find do |se|
       se.user_id == user.id
     end unless user.nil?
   end
+  alias_method :registered_by_user?, :registered_event
 end
