@@ -1,3 +1,0 @@
-<%= Twilio::TwiML::Response.new do |r|
-  r.Say "Time to get up! It has snowed #{@resort.value} inches overnight at #{@resort.name}. Have fun today!", :voice => 'woman'
-end.text.html_safe %>
