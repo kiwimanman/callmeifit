@@ -1,5 +1,5 @@
 Callmeifit::Application.routes.draw do
-  root :to => 'launches#root'
+  root :to => 'application#home'
   resources :launches
   resources :users
   resources :phones, do
