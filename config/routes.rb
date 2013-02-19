@@ -17,6 +17,7 @@ Callmeifit::Application.routes.draw do
       get 'test'
     end
   end
+  resources :about, :only => :index
 
   match '/auth/:provider/callback', to: 'sessions#create'
   match '/auth/logout', to: 'sessions#logout', as: 'logout'
