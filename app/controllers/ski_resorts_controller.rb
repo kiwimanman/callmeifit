@@ -20,12 +20,10 @@ class SkiResortsController < ApplicationController
     end
 
     snow_event.threshold = params[:threshold]
+    snow_event.contact_by = params[:contact_by]
     snow_event.phone_number = @logged_in_user.verified_phone.number
 
-    if snow_event.save
-      redirect_to ski_resort_path(params[:id])
-    else
-      render :edit
-    end
+    flash[:notice] = "Saved successfully" if snow_event.save
+    redirect_to ski_resort_path(params[:id])
   end
 end

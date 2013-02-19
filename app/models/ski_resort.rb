@@ -24,4 +24,8 @@ class SkiResort < ActiveRecord::Base
     end unless user.nil?
   end
   alias_method :registered_by_user?, :registered_event
+
+  def contact_message
+    "Time to get up! It has snowed #{value} inches overnight at #{name}. Have fun today!"
+  end
 end

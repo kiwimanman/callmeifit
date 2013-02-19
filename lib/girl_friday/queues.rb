@@ -35,9 +35,18 @@ queue_defaults = {
   controller = ApplicationController.new
   client = controller.initialize_twilio
   phone = Phone.find_by_number(msg[:phone])
-  @call = client.account.calls.create(
-    :from => ENV['TWILIO_PHONE'],
-    :to => phone.twilio_formatted,
-    :url => "http://www.callmeif.it/snows/#{msg[:ski_resort]}/notify.xml"
-  )
+  if msg[:contact_by] == :call
+    @call = client.account.calls.create(
+      :from => ENV['TWILIO_PHONE'],
+      :to => phone.twilio_formatted,
+      :url => "http://www.callmeif.it/snows/#{msg[:ski_resort]}/notify.xml"
+    )
+  else
+    resort = SkiResort.find(msg[:ski_resort])
+    client.account.sms.messages.create(
+      :from => ENV['TWILIO_PHONE'],
+      :to => phone.twilio_formatted,
+      :body => resort.contact_message
+    )
+  end
 end
