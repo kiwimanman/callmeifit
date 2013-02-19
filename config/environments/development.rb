@@ -37,5 +37,9 @@ Callmeifit::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
+  config.generators do |g|
+    g.fixture_replacement :factory_girl
+  end
+
   GirlFriday::Queue.immediate!
 end
