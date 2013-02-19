@@ -4,6 +4,7 @@
       We will call you at: <%= user.verified_phone.formatted %> <%= link_to 'Add Another Phone', @logged_in_user, :class => '' %>
     <% else %>
     <% end %>
+    <br>We will contact you from: <strong>(425) 409-6178</strong>.
   <% else %>
     <p><strong>No verified phones found.</strong> <%= link_to 'Add Phone', @logged_in_user, :class => 'btn btn-inverse' %>
   <% end %>
