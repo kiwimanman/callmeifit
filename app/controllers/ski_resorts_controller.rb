@@ -11,6 +11,12 @@ class SkiResortsController < ApplicationController
     @resort = SkiResort.find(params[:id])
   end
 
+  def test
+    resort = SkiResort.find(params[:id], :include => :snow_events)
+    resort.registered_event(@logged_in_user).make_contact
+    redirect_to ski_resort_path(params[:id])
+  end
+
   def update
     snow_event = SnowEvent.where(:user_id => @logged_in_user.id, :ski_resort_id => params[:id]).first
     if snow_event.blank?

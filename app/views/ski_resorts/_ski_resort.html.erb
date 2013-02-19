@@ -42,7 +42,14 @@
               Current snow fall: <%= ski_resort.value %> inche(es)
             </div>
             <%= render :partial => 'users/phone_chooser', :object => @logged_in_user, :as => :user %>
-            <button type="submit" class="btn btn-primary">Do it!</button>
+            <% if ski_resort.registered_by_user?(@logged_in_user) %>
+              <div class="btn-group">
+                <button type="submit" class="btn btn-primary">Update</button>
+                <%= link_to 'Test', test_ski_resort_path(ski_resort), class: 'btn', rel: 'nofollow' %>
+              </div>
+            <% else %>
+              <button type="submit" class="btn btn-primary">Do it!</button>
+            <% end %>
           </div>
         <% end %>
      <% end %>

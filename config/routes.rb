@@ -14,6 +14,7 @@ Callmeifit::Application.routes.draw do
   resources :ski_resorts, :path => 'snows' do
     member do
       match 'notify'
+      get 'test'
     end
   end
 
