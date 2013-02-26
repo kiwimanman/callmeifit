@@ -22,4 +22,5 @@ Callmeifit::Application.routes.draw do
   match '/auth/:provider/callback', to: 'sessions#create'
   match '/auth/logout', to: 'sessions#logout', as: 'logout'
 
+  resources :emails, only: :create
 end

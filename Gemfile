@@ -21,6 +21,8 @@ gem 'girl_friday', :git => 'git://github.com/kiwimanman/girl_friday.git'
 gem 'sinatra'
 gem 'connection_pool'
 
+gem 'incoming'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
