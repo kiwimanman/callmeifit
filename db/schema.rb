@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130219050557) do
+ActiveRecord::Schema.define(:version => 20130228054640) do
 
   create_table "facebook_keys", :force => true do |t|
     t.integer  "user_id"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20130219050557) do
 
   create_table "users", :force => true do |t|
     t.text "name"
+    t.text "photo_url"
   end
 
 end

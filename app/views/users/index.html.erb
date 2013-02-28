@@ -2,17 +2,15 @@
   <tr>
     <th>ID</th>
     <th>Name</th>
-    <th>Facebook ID</th>
+    <th>Photo</th>
     <th>Facebook Info</th>
-    <th>Facebook Extra</th>
   </tr>
   <% @users.each do |user| %>
     <tr>
       <td><%= user.id %></td>
       <td><%= user.name %></td>
-      <td><%= user.facebook_keys[0].uid %></td>
+      <td><%= image_tag user.photo_url %></td>
       <td><%= user.facebook_keys[0].info %></td>
-      <td><%= user.facebook_keys[0].extra %></td>
     <tr>
   <% end %>
 </table>

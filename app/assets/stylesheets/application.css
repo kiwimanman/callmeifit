@@ -31,3 +31,9 @@ form .clearfix:before, form .clearfix:after {
   margin: 20px 0 0 0;
   text-align: center;
 }
+
+.nav img {
+  height: 20px;
+  width: 20px;
+  border: 1px solid #444;
+}
