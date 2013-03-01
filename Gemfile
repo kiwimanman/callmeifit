@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.0.0'
+
 gem 'rails', '~> 3.2.10'
 
 # Bundle edge Rails instead:
@@ -54,4 +56,4 @@ gem 'unicorn'
 # gem 'capistrano'
 
 # To use debugger
-gem 'debugger'
+#gem 'debugger'
