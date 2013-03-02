@@ -2,7 +2,7 @@ Callmeifit::Application.routes.draw do
   root :to => 'application#home'
   resources :launches
   resources :users
-  resources :phones, do
+  resources :phones do
     collection do
       match 'with_code/:code' => 'phones#with_code', :as => 'with_code'
     end
