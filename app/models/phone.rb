@@ -2,8 +2,6 @@ class Phone < ActiveRecord::Base
   belongs_to :user
   has_many :snow_events
 
-  attr_accessible :number
-
   validates_numericality_of :international
   validates_numericality_of :number,    allow_nil: true
   validates_numericality_of :extension, allow_nil: true

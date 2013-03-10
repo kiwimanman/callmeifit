@@ -16,7 +16,7 @@
         <tr>
           <td><%= phone.number %></td>
           <td><%= render partial: 'phones/show_verification', object: phone, as: :phone %></td>
-          <td><%= link_to 'Delete', phone, :class => 'btn btn-small', :confirm => "Are you sure?", :method => :delete %></td>
+          <td><%= link_to 'Delete', phone, :class => 'btn btn-small', data: { confirm: 'Are you sure?' }, :method => :delete %></td>
         </tr>
       <% end %>
       </tbody>

@@ -10,6 +10,6 @@ class User < ActiveRecord::Base
   def verified_phone
     phones.find{ |phone| phone.verified? }
   end
-  alias_method :verifed_phone?, :verified_phone
+  alias_method :verified_phone?, :verified_phone
 
 end

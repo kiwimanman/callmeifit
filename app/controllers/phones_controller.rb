@@ -16,12 +16,12 @@ class PhonesController < ApplicationController
   end
 
   def destroy
-    Phone.find(params[:id]).delete
+    Phone.where(id: params[:id]).delete
     redirect_to @logged_in_user
   end
 
   def verify
-    @phone = Phone.find(params[:id])
+    @phone = Phone.where(id: params[:id])
     @phone.generate_verification_token
     @phone.save
     
@@ -32,7 +32,7 @@ class PhonesController < ApplicationController
   end
 
   def confirm
-    @phone = Phone.find(params[:id])
+    @phone = Phone.where(id: params[:id])
     if @phone.verifation_confirmed? params[:code]
       @phone.save
       redirect_to @logged_in_user

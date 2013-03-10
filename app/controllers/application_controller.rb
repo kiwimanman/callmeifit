@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :logged_in_user
 
   def logged_in_user
-    @logged_in_user = User.find(session[:user_id]) unless session[:user_id].blank?
+    @logged_in_user = User.where(id: session[:user_id]) unless session[:user_id].blank?
   end
 
   def require_logged_in_user

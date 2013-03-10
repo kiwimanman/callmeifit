@@ -1,5 +1,5 @@
  <div class="control-group">
-  <% if user.verifed_phone? %>
+  <% if user.verified_phone? %>
     <% if user.verified_phones.length < 2 %>
       We will call you at: <%= user.verified_phone.formatted %> <%= link_to 'Add Another Phone', @logged_in_user, :class => '' %>
     <% else %>

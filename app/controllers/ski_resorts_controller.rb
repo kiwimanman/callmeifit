@@ -1,18 +1,18 @@
 class SkiResortsController < ApplicationController
   def index
-    @resorts = SkiResort.find(:all, :include => :snow_events)
+    @resorts = SkiResort.scoped
   end
 
   def show
-    @resort = SkiResort.find(params[:id], :include => :snow_events)
+    @resort = SkiResort.where(id: params[:id])
   end
 
   def notify
-    @resort = SkiResort.find(params[:id])
+    @resort = SkiResort.where(id: params[:id])
   end
 
   def test
-    resort = SkiResort.find(params[:id], :include => :snow_events)
+    resort = SkiResort.where(id: params[:id])
     resort.registered_event(@logged_in_user).make_contact
     redirect_to ski_resort_path(params[:id])
   end

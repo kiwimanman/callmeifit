@@ -4,11 +4,11 @@ class UsersController < ApplicationController
   http_basic_authenticate_with name: ENV['HTTP_USER'], password: ENV['HTTP_PASSWORD'], only: :index
 
   def show
-    @user = User.find(params[:id])
+    @user = User.where(id: params[:id])
   end
 
   def index
-    @users = User.find(:all, :include => :facebook_keys)
+    @users = User.scoped
   end
 
   protected
