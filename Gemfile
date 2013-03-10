@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 
-gem 'rails', '~> 3.2.10'
+gem 'rails', '= 4.0.0.beta1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -23,13 +23,13 @@ gem 'girl_friday', :git => 'git://github.com/kiwimanman/girl_friday.git'
 gem 'sinatra'
 gem 'connection_pool'
 
-gem 'incoming'
+gem 'incoming', :git => 'git://github.com/kiwimanman/incoming.git', :branch => 'fix_mailer'
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
+  gem 'sass-rails', '4.0.0.beta1'
+	gem 'coffee-rails', '4.0.0.beta1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   gem 'therubyracer', '~> 0.10.0', :platforms => :ruby
@@ -56,4 +56,4 @@ gem 'unicorn'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+gem 'debugger'
