@@ -14,6 +14,7 @@ gem 'omniauth-facebook'
 gem 'nokogiri'
 gem 'twilio-ruby'
 gem 'newrelic_rpm'
+gem 'rails_12factor'
 
 # Background working
 gem 'redis'
@@ -23,7 +24,7 @@ gem 'girl_friday', :git => 'git://github.com/kiwimanman/girl_friday.git'
 gem 'sinatra'
 gem 'connection_pool'
 
-gem 'incoming', :git => 'git://github.com/kiwimanman/incoming.git', :branch => 'fix_mailer'
+gem 'incoming'
 
 # Gems used only for assets and not required
 # in production environments by default.
