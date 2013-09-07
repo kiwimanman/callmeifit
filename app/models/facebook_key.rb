@@ -7,6 +7,7 @@ class FacebookKey < ActiveRecord::Base
     facebook_key.user ||= User.create
     facebook_key.user.name ||= auth_hash[:info]["name"]
     facebook_key.user.photo_url ||= auth_hash[:info]["image"]
+    facebook_key.user.save
     facebook_key.info = auth_hash[:info].to_json
     creds = auth_hash[:credentials]
     facebook_key.token = auth_hash[:credentials][:token]
