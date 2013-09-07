@@ -3,7 +3,7 @@ Callmeifit::Application.routes.draw do
   resources :launches
   resource :user do
     collection do
-      get 'index'
+      get 'all'
     end
   end
   resources :phones do
