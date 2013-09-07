@@ -1,6 +1,6 @@
 class SkiResortsController < ApplicationController
   def index
-    @resorts = SkiResort.scoped
+    @resorts = SkiResort.all
   end
 
   def show

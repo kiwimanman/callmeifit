@@ -8,7 +8,7 @@
 
 # Ski Resorts:
 
-resort = SkiResort.find_or_create_by_name('Stevens Pass')
+resort = SkiResort.find_or_create_by(name: 'Stevens Pass')
 resort.address_line1 = "Summit Stevens Pass, US Hwy 2"
 resort.address_location = "Skykomish, WA 98288"
 resort.website = "http://www.stevenspass.com/"
@@ -19,7 +19,7 @@ resort.scrape_selector = '#cmtContent table:nth-of-type(2) tr:nth-of-type(3) td:
 resort.scrape_regex = '^(?<value>\d+)'
 resort.save
 
-resort = SkiResort.find_or_create_by_name('Crystal Mountain')
+resort = SkiResort.find_or_create_by(name: 'Crystal Mountain')
 resort.address_line1 = "33914 Crystal Mountain Blvd"
 resort.address_location = "Snoqualmie National Forest, Enumclaw, WA 98022"
 resort.website = "http://crystalmountainresort.com/"

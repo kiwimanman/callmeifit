@@ -2,10 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 
-gem 'rails', '4.0.0'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'rails', '~> 4.0.0'
 
 gem 'foreman'
 gem 'pg'
@@ -20,7 +17,6 @@ gem 'rails_12factor'
 gem 'redis'
 gem 'hiredis'
 gem 'girl_friday', :git => 'git://github.com/kiwimanman/girl_friday.git'
-#gem 'girl_friday'
 gem 'sinatra'
 gem 'connection_pool'
 
@@ -43,7 +39,10 @@ gem 'jquery-rails'
 group :test, :development do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'guard-rspec'
+  gem 'terminal-notifier-guard'
 end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -52,9 +51,4 @@ end
 
 # Use unicorn as the app server
 gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-gem 'debugger'
+gem 'byebug'

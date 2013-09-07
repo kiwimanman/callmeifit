@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe EmailsController, '#create' do
   it 'responds with success when request is valid' do
     EmailReceiver.should_receive(:receive).and_return(true)

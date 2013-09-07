@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe SkiResort do
   context '#contact_message' do
     let(:ski_resort) { build(:ski_resort) }
