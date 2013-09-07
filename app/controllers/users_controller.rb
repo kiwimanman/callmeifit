@@ -1,19 +1,9 @@
 class UsersController < ApplicationController
-  before_filter :authorized_only, except: :index
+  before_filter :require_logged_in_user
 
-  http_basic_authenticate_with name: ENV['HTTP_USER'], password: ENV['HTTP_PASSWORD'], only: :index
-
-  def show
-    @user = User.where(id: params[:id])
-  end
+  http_basic_authenticate_with name: ENV['HTTP_USER'], password: ENV['HTTP_PASSWORD'], only: :index if Rails.env.production?
 
   def index
-    @users = User.scoped
-  end
-
-  protected
-
-  def authorized_only
-    redirect_to @logged_in_user unless @logged_in_user.id == params[:id].to_i
+    @users = User.all
   end
 end

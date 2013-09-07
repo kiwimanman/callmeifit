@@ -1,7 +1,11 @@
 Callmeifit::Application.routes.draw do
   root :to => 'application#home'
   resources :launches
-  resources :users
+  resource :user do
+    collection do
+      get 'index'
+    end
+  end
   resources :phones do
     collection do
       post 'with_code/:code' => 'phones#with_code', :as => 'with_code'

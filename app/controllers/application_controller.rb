@@ -3,12 +3,10 @@ class ApplicationController < ActionController::Base
 
   before_filter :logged_in_user
 
-  def logged_in_user
-    @logged_in_user = User.where(id: session[:user_id]) unless session[:user_id].blank?
-  end
+  include ApplicationHelper
 
   def require_logged_in_user
-    redirect_to '/auth/facebook' if session[:user_id].blank?
+    redirect_to '/auth/facebook' unless logged_in_user
   end
 
   def initialize_twilio

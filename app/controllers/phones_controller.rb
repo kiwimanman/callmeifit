@@ -7,9 +7,9 @@ class PhonesController < ApplicationController
 
   def create
     @phone = Phone.new(params[:phone])
-    @phone.user = @logged_in_user
+    @phone.user = logged_in_user
     if @phone.save
-      redirect_to @logged_in_user
+      redirect_to user_path
     else
       render :new
     end
