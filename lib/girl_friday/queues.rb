@@ -4,6 +4,17 @@ redis_pool = ConnectionPool.new(:size => 1, :timeout => 5) {
   Redis.new url: ENV['REDISTOGO_URL']
 }
 
+class QueueWork
+  def self.scrape_for_resort(resort_id)
+    resort = SkiResort.find(resort_id)
+    resort.scrape_value!
+  end
+  class << self
+     include ::NewRelic::Agent::Instrumentation::ControllerInstrumentation
+     add_transaction_tracer :scrape_for_resort, :category => :task
+  end
+end
+
 queue_defaults = {
   :size => ENV["WORKER"] == 'true' ? 1 : 0,
   :store => GirlFriday::Store::Redis,
@@ -21,8 +32,7 @@ queue_defaults = {
 }
 
 ::RESORT_UPDATE_QUEUE = GirlFriday::WorkQueue.new(:resort_update, queue_defaults) do |msg|
-  resort = SkiResort.find(msg[:resort_id])
-  resort.scrape_value!
+  QueueWork.scrape_for_resort(msg[:resort_id])
 end
 
 queue_defaults = {
