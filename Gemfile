@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.1.2'
 
 gem 'rails', '~> 4.0.0'
 
@@ -29,7 +29,7 @@ group :assets do
 	gem 'coffee-rails', '>= 4.0.0'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', '~> 0.10.0', :platforms => :ruby
+  gem 'therubyracer', '~> 0.10', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
@@ -42,6 +42,11 @@ group :test, :development do
   gem 'guard-rspec'
   gem 'terminal-notifier-guard'
 end
+
+gem 'capistrano', '~> 3.1.0'
+gem 'capistrano-bundler', '~> 1.1.2'
+gem 'capistrano-rails', '~> 1.1.1'
+gem 'capistrano-rbenv', github: "capistrano/rbenv"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
