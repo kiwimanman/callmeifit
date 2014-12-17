@@ -11,7 +11,6 @@ gem 'omniauth-facebook'
 gem 'nokogiri'
 gem 'twilio-ruby'
 gem 'newrelic_rpm'
-gem 'rails_12factor'
 
 # Background working
 gem 'redis'
