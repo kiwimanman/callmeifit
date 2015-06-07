@@ -43,11 +43,6 @@ group :test, :development do
   gem 'terminal-notifier-guard'
 end
 
-gem 'capistrano', '~> 3.1.0'
-gem 'capistrano-bundler', '~> 1.1.2'
-gem 'capistrano-rails', '~> 1.1.1'
-gem 'capistrano-rbenv', github: "capistrano/rbenv"
-
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
