@@ -1,6 +1,8 @@
 #!/usr/bin/env ruby
 oldrev, newrev = ARGV
 
+puts sh("which ruby")
+
 def run(cmd)
   exit($?.exitstatus) unless system "umask 002 && #{cmd}"
 end
