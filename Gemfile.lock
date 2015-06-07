@@ -264,6 +264,7 @@ DEPENDENCIES
   capistrano-rbenv!
   coffee-rails (>= 4.0.0)
   connection_pool
+  dotenv
   factory_girl_rails
   foreman
   girl_friday!

@@ -1,7 +1,7 @@
 class TextSupport < ActiveRecord::Migration
   def up
     add_column  :snow_events, :contact_by, :text
-    ::SnowEvent.all.load.each do |se|
+    ::SnowEvent.find(:all).load.each do |se|
       se.save
     end
   end

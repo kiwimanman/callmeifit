@@ -11,6 +11,7 @@ gem 'omniauth-facebook'
 gem 'nokogiri'
 gem 'twilio-ruby'
 gem 'newrelic_rpm'
+gem 'dotenv'
 
 # Background working
 gem 'redis'
