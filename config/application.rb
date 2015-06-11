@@ -12,6 +12,8 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+Dotenv::Railtie.load
+
 module Callmeifit
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -36,7 +38,7 @@ module Callmeifit
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    config.logger = Logger.new(STDOUT)
+    # config.logger = Logger.new(STDOUT)
     config.logger.level = Logger.const_get((ENV["LOG_LEVEL"] || "INFO").upcase)
 
     # Configure the default encoding used in templates for Ruby 1.9.
@@ -61,7 +63,7 @@ module Callmeifit
   end
 end
 
-ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
+ActionView::Base.field_error_proc = proc do |html_tag, _instance|
   html = ''
   elements = Nokogiri::HTML::DocumentFragment.parse(html_tag).css "label, input"
   elements.add_class('error').each do |e|
