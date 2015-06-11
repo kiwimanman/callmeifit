@@ -6,7 +6,7 @@ class PhonesController < ApplicationController
   end
 
   def create
-    @phone = Phone.new(params.permit(:phone))
+    @phone = Phone.new(params.require(:phone).permit(:number))
     @phone.user = logged_in_user
     if @phone.save
       redirect_to user_path
@@ -16,12 +16,12 @@ class PhonesController < ApplicationController
   end
 
   def destroy
-    Phone.where(id: params[:id]).delete
+    Phone.where(id: params[:id]).each(&:delete)
     redirect_to @logged_in_user
   end
 
   def verify
-    @phone = Phone.where(id: params[:id])
+    @phone = Phone.where(id: params[:id]).first
     @phone.generate_verification_token
     @phone.save
 
@@ -32,7 +32,7 @@ class PhonesController < ApplicationController
   end
 
   def confirm
-    @phone = Phone.where(id: params[:id])
+    @phone = Phone.where(id: params[:id]).first
     if @phone.verifation_confirmed? params[:code]
       @phone.save
       redirect_to @logged_in_user
