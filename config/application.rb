@@ -37,7 +37,7 @@ module Callmeifit
     # config.i18n.default_locale = :de
 
     # config.logger = Logger.new(STDOUT)
-    config.logger.level = Logger.const_get((ENV["LOG_LEVEL"] || "INFO").upcase)
+    config.log_level = (ENV["LOG_LEVEL"] || "info").downcase.to_sym
 
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
