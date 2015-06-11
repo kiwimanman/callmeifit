@@ -4,14 +4,14 @@ ruby '2.1.5'
 
 gem 'rails', '~> 4.0.0'
 
-gem 'foreman'
+gem 'foreman', '~> 0.78'
 gem 'pg'
 gem 'bigdecimal'
 gem 'omniauth-facebook', '~> 2.0', '>= 2.0.1'
 gem 'nokogiri'
 gem 'twilio-ruby'
 gem 'newrelic_rpm'
-gem 'dotenv'
+gem 'dotenv', '~> 2.0', '>= 2.0.1'
 
 # Background working
 gem 'redis'
