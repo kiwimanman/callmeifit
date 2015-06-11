@@ -7,7 +7,7 @@ require 'rails/all'
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
-  Bundler.require(*Rails.groups(:assets => %w(development test)))
+  Bundler.require(*Rails.groups(assets: %w(development test)))
   # If you want your assets lazily compiled in production, use this line
   # Bundler.require(:default, :assets, Rails.env)
 end
@@ -37,10 +37,10 @@ module Callmeifit
     # config.i18n.default_locale = :de
 
     # config.logger = Logger.new(STDOUT)
-    config.log_level = (ENV["LOG_LEVEL"] || "info").downcase.to_sym
+    config.log_level = (ENV['LOG_LEVEL'] || 'info').downcase.to_sym
 
     # Configure the default encoding used in templates for Ruby 1.9.
-    config.encoding = "utf-8"
+    config.encoding = 'utf-8'
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
@@ -63,7 +63,7 @@ end
 
 ActionView::Base.field_error_proc = proc do |html_tag, _instance|
   html = ''
-  elements = Nokogiri::HTML::DocumentFragment.parse(html_tag).css "label, input"
+  elements = Nokogiri::HTML::DocumentFragment.parse(html_tag).css 'label, input'
   elements.add_class('error').each do |e|
     html << e.to_s
   end

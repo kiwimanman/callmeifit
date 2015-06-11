@@ -4,12 +4,11 @@ class User < ActiveRecord::Base
   has_many :snow_events
 
   def verified_phones
-    phones.select{ |phone| phone.verified? }
+    phones.select(&:verified?)
   end
 
   def verified_phone
-    phones.find{ |phone| phone.verified? }
+    phones.find(&:verified?)
   end
   alias_method :verified_phone?, :verified_phone
-
 end

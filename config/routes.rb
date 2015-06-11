@@ -1,5 +1,5 @@
 Callmeifit::Application.routes.draw do
-  root :to => 'application#home'
+  root to: 'application#home'
   resources :launches
   resource :user do
     collection do
@@ -11,17 +11,17 @@ Callmeifit::Application.routes.draw do
       post 'with_code/:code' => 'phones#with_code', :as => 'with_code'
     end
     member do
-      get  'verify'
+      get 'verify'
       post 'confirm'
     end
   end
-  resources :ski_resorts, :path => 'snows' do
+  resources :ski_resorts, path: 'snows' do
     member do
       post 'notify'
       get 'test'
     end
   end
-  resources :about, :only => :index
+  resources :about, only: :index
 
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/logout', to: 'sessions#logout', as: 'logout'

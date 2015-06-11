@@ -10,7 +10,7 @@ describe UsersController do
     context 'with a logged in user' do
       before do
         user = create(:user)
-        @controller.stub(:session).and_return({user_id: user.id})
+        @controller.stub(:session).and_return(user_id: user.id)
         get :show
       end
       it { expect(assigns(:logged_in_user)).to_not be_nil }

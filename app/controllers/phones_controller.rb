@@ -1,12 +1,12 @@
 class PhonesController < ApplicationController
-  before_filter :require_logged_in_user, :except => :with_code
+  before_filter :require_logged_in_user, except: :with_code
 
   def new
     @phone = Phone.new
   end
 
   def create
-    @phone = Phone.new(params[:phone])
+    @phone = Phone.new(params.permit(:phone))
     @phone.user = logged_in_user
     if @phone.save
       redirect_to user_path
@@ -24,8 +24,8 @@ class PhonesController < ApplicationController
     @phone = Phone.where(id: params[:id])
     @phone.generate_verification_token
     @phone.save
-    
-    msg = { :method => (params[:call] ? :call : :sms), :phone_id => @phone.id }
+
+    msg = { method: (params[:call] ? :call : :sms), phone_id: @phone.id }
     PHONE_VERIFICATION_QUEUE.push(msg)
 
     redirect_to @logged_in_user

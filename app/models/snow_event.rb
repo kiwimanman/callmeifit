@@ -3,7 +3,7 @@ class SnowEvent < ActiveRecord::Base
   belongs_to :ski_resort
 
   validates_numericality_of :threshold
-  validates_inclusion_of :contact_by, :in => [ "call", "text" ]
+  validates_inclusion_of :contact_by, in: %w(call text)
 
   after_initialize :init
 
@@ -20,9 +20,9 @@ class SnowEvent < ActiveRecord::Base
   end
 
   def make_contact
-    ::SNOW_CONTACT_QUEUE.push(:phone => phone_number,
-                              :ski_resort => ski_resort_id,
-                              :contact_by => contact_by_text? ? :text : :call)
+    ::SNOW_CONTACT_QUEUE.push(phone: phone_number,
+                              ski_resort: ski_resort_id,
+                              contact_by: contact_by_text? ? :text : :call)
     self.last_contacted = Time.now
     save
   end

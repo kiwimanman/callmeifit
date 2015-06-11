@@ -6,7 +6,7 @@ class SkiResort < ActiveRecord::Base
     scraped_value = scrape.at_css(scrape_selector).children.first.text
     match = scraped_value.match(Regexp.new(scrape_regex))
     if match && match[:value]
-      self.value = match[:value] 
+      self.value = match[:value]
       save
       SnowEvent.find_all_by_ski_resort_id(1).each do |event|
         if event.threshold <= value && event.contactable_time? && !event.contacted_today?

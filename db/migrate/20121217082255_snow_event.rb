@@ -4,7 +4,7 @@ class SnowEvent < ActiveRecord::Migration
       t.references :user
       t.references :ski_resort
       t.references :phone
-      t.text       :threshold
+      t.text :threshold
 
       t.timestamps
     end

@@ -5,12 +5,12 @@ class AddFacebook < ActiveRecord::Migration
     end
 
     create_table :facebook_keys do |t|
-      t.references :user 
-      t.text       :uid
-      t.text       :info
-      t.text       :token
-      t.datetime   :expires_at
-      t.text       :extra
+      t.references :user
+      t.text :uid
+      t.text :info
+      t.text :token
+      t.datetime :expires_at
+      t.text :extra
 
       t.timestamps
     end

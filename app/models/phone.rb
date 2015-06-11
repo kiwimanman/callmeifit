@@ -7,13 +7,13 @@ class Phone < ActiveRecord::Base
   validates_numericality_of :extension, allow_nil: true
   validates_length_of :number, is: 10
   validates_presence_of :user, :number
-  validates_inclusion_of :verified, :in => [true, false]
+  validates_inclusion_of :verified, in: [true, false]
 
   def initialize(params = {})
     super(params)
 
     self.international ||= 1
-    self.verified      ||= false
+    self.verified ||= false
   end
 
   def verified?
@@ -29,7 +29,7 @@ class Phone < ActiveRecord::Base
   end
 
   def generate_verification_token
-    self.verification_token ||= 5.times.map{ Random.rand(10).to_s }.join
+    self.verification_token ||= 5.times.map { Random.rand(10).to_s }.join
   end
 
   def verifation_confirmed?(value)
@@ -44,15 +44,15 @@ class Phone < ActiveRecord::Base
 
     if msg[:method] == :call
       twilio_account.calls.create(
-        :from => ENV['TWILIO_PHONE'],
-        :to => phone.twilio_formatted,
-        :url => "http://www.callmeif.it/phones/with_code/#{phone.verification_token}.xml"
+        from: ENV['TWILIO_PHONE'],
+        to: phone.twilio_formatted,
+        url: "http://www.callmeif.it/phones/with_code/#{phone.verification_token}.xml"
       )
     else
       twilio_account.sms.messages.create(
-        :from => ENV['TWILIO_PHONE'],
-        :to => phone.twilio_formatted,
-        :body => "Your verfication code is: #{phone.verification_token}"
+        from: ENV['TWILIO_PHONE'],
+        to: phone.twilio_formatted,
+        body: "Your verfication code is: #{phone.verification_token}"
       )
     end
   end
