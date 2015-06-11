@@ -11,7 +11,7 @@ gem 'omniauth-facebook', '~> 2.0', '>= 2.0.1'
 gem 'nokogiri'
 gem 'twilio-ruby'
 gem 'newrelic_rpm'
-gem 'dotenv', '~> 2.0', '>= 2.0.1'
+gem 'dotenv', '~> 2.0', '>= 2.0.1', require: 'dotenv/rails-now'
 
 # Background working
 gem 'redis'
