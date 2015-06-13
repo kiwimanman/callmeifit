@@ -1,6 +1,3 @@
-
-require 'girl_friday/queues'
-
 Callmeifit::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -32,6 +29,4 @@ Callmeifit::Application.configure do
   config.generators do |g|
     g.fixture_replacement :factory_girl
   end
-
-  GirlFriday::Queue.immediate!
 end

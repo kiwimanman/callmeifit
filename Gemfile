@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.5'
+ruby '2.2.2'
 
 gem 'rails', '~> 4.0.0'
 
@@ -16,7 +16,7 @@ gem 'dotenv-rails', '~> 2.0', '>= 2.0.1'
 # Background working
 gem 'redis'
 gem 'hiredis'
-gem 'girl_friday', git: 'git://github.com/kiwimanman/girl_friday.git'
+gem 'sidekiq'
 gem 'sinatra'
 gem 'connection_pool'
 

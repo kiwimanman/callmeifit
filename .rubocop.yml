@@ -1,0 +1,41 @@
+AllCops:
+  Exclude:
+    - Guardfile
+
+Style/SignalException:
+  EnforcedStyle: only_raise
+
+Metrics/LineLength:
+  Max: 110
+  Exclude:
+    - config/initializers/negative_captcha.rb
+    - config/initializers/secret_token.rb
+    - Gemfile
+
+Metrics/MethodLength:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/RescueModifier:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/FileName:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Rails/ActionFilter:
+  EnforcedStyle: filter
+
+Style/AccessorMethodName:
+  Exclude:
+    - app/helpers/person_railcar/meta_helper.rb

@@ -20,9 +20,11 @@ class SnowEvent < ActiveRecord::Base
   end
 
   def make_contact
-    ::SNOW_CONTACT_QUEUE.push(phone: phone_number,
-                              ski_resort: ski_resort_id,
-                              contact_by: contact_by_text? ? :text : :call)
+    SnowContactWorker.perform_async(
+      phone_number,
+      contact_by_text? ? :text : :call,
+      ski_resort_id
+    )
     self.last_contacted = Time.now
     save
   end

@@ -26,7 +26,7 @@ class PhonesController < ApplicationController
     @phone.save
 
     msg = { method: (params[:call] ? :call : :sms), phone_id: @phone.id }
-    PHONE_VERIFICATION_QUEUE.push(msg)
+    PhoneVerificationWorker.perform_async(msg)
 
     redirect_to @logged_in_user
   end

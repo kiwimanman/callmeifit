@@ -1,15 +1,31 @@
 describe EmailsController, '#create' do
-  it 'responds with success when request is valid' do
-    EmailReceiver.should_receive(:receive).and_return(true)
+  let(:is_valid) { true }
+
+  before do
+    allow(EmailReceiver).to receive(:receive).and_return(is_valid)
     post :create
-    response.should be_success
-    response.body.should eq '{"status":"ok"}'
   end
 
-  it 'responds with 403 when request is invalid' do
-    EmailReceiver.should_receive(:receive).and_return(false)
-    post :create
-    response.status.should eq 403
-    response.body.should eq '{"status":"rejected"}'
+  context 'when the request is valid' do
+    it 'responds with success' do
+      expect(response).to be_success
+    end
+
+    it 'responds with status ok' do
+      expect(JSON.parse(response.body)['status']).to eq 'ok'
+    end
+  end
+
+  context 'when the request is invalid' do
+    let(:is_valid) { nil }
+
+    it 'responds with 403 when request is invalid' do
+      expect(response.status).to eq 403
+    end
+
+    it 'responds with status rejected' do
+      status = JSON.parse(response.body)['status']
+      expect(status).to eq 'rejected'
+    end
   end
 end

@@ -21,7 +21,4 @@ after_fork do |_server, _worker|
     ActiveRecord::Base.establish_connection(config)
     Rails.logger.info('Connected to ActiveRecord')
   end
-
-  require 'girl_friday/queues'
-  GirlFriday.begin_polling
 end
