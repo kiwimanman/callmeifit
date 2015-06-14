@@ -8,7 +8,7 @@ class SnowEvent < ActiveRecord::Base
   after_initialize :init
 
   def init
-    self.contact_by ||= 'call'
+    self.contact_by ||= "call"
   end
 
   def contacted_today?
@@ -30,6 +30,6 @@ class SnowEvent < ActiveRecord::Base
   end
 
   def contact_by_text?
-    contact_by == 'text'
+    contact_by == "text"
   end
 end

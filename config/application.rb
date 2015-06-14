@@ -1,9 +1,9 @@
-require File.expand_path('../boot', __FILE__)
+require File.expand_path("../boot", __FILE__)
 
-require 'open-uri'
+require "open-uri"
 
-require 'active_record/railtie'
-require 'rails/all'
+require "active_record/railtie"
+require "rails/all"
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
@@ -37,10 +37,10 @@ module Callmeifit
     # config.i18n.default_locale = :de
 
     # config.logger = Logger.new(STDOUT)
-    config.log_level = (ENV['LOG_LEVEL'] || 'info').downcase.to_sym
+    config.log_level = (ENV["LOG_LEVEL"] || "info").downcase.to_sym
 
     # Configure the default encoding used in templates for Ruby 1.9.
-    config.encoding = 'utf-8'
+    config.encoding = "utf-8"
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
@@ -57,14 +57,14 @@ module Callmeifit
     config.assets.enabled = true
 
     # Version of your assets, change this if you want to expire all your assets
-    config.assets.version = '1.0'
+    config.assets.version = "1.0"
   end
 end
 
 ActionView::Base.field_error_proc = proc do |html_tag, _instance|
-  html = ''
-  elements = Nokogiri::HTML::DocumentFragment.parse(html_tag).css 'label, input'
-  elements.add_class('error').each do |e|
+  html = ""
+  elements = Nokogiri::HTML::DocumentFragment.parse(html_tag).css "label, input"
+  elements.add_class("error").each do |e|
     html << e.to_s
   end
   html.html_safe

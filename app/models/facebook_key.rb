@@ -5,8 +5,8 @@ class FacebookKey < ActiveRecord::Base
     return if auth_hash[:uid].blank?
     facebook_key = FacebookKey.find_or_create_by(uid: auth_hash[:uid])
     facebook_key.user ||= User.create
-    facebook_key.user.name ||= auth_hash[:info]['name']
-    facebook_key.user.photo_url ||= auth_hash[:info]['image']
+    facebook_key.user.name ||= auth_hash[:info]["name"]
+    facebook_key.user.photo_url ||= auth_hash[:info]["image"]
     facebook_key.user.save
     facebook_key.info = auth_hash[:info].to_json
     creds = auth_hash[:credentials]

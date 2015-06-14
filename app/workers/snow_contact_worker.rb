@@ -7,14 +7,14 @@ class SnowContactWorker
     phone = Phone.find_by_number(phone_number)
     if contact_by == :call
       @call = client.calls.create(
-        from: ENV['TWILIO_PHONE'],
+        from: ENV["TWILIO_PHONE"],
         to: phone.twilio_formatted,
         url: "http://www.callmeif.it/snows/#{resort_id}/notify.xml"
       )
     else
       resort = SkiResort.find(resort_id)
       client.sms.messages.create(
-        from: ENV['TWILIO_PHONE'],
+        from: ENV["TWILIO_PHONE"],
         to: phone.twilio_formatted,
         body: resort.contact_message
       )

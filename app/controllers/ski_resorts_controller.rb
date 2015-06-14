@@ -29,7 +29,7 @@ class SkiResortsController < ApplicationController
     snow_event.contact_by = params[:contact_by]
     snow_event.phone_number = @logged_in_user.verified_phone.number
 
-    flash[:notice] = 'Saved successfully' if snow_event.save
+    flash[:notice] = "Saved successfully" if snow_event.save
     redirect_to ski_resort_path(params[:id])
   end
 end
