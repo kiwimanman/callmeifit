@@ -16,7 +16,7 @@ gem "dotenv-rails", "~> 2.0", ">= 2.0.1"
 # Background working
 gem "redis"
 gem "hiredis"
-gem "sidekiq"
+gem "sidekiq", "~> 3.3"
 gem "sinatra"
 gem "connection_pool"
 
@@ -37,10 +37,12 @@ end
 gem "jquery-rails"
 
 group :test, :development do
+  gem "rspec", "~> 3.3"
   gem "rspec-rails"
   gem "factory_girl_rails"
   gem "guard-rspec"
-  gem "terminal-notifier-guard"
+  gem "terminal-notifier-guard", "~> 1.6"
+  gem "terminal-notifier", "~> 1.6", ">= 1.6.3"
   gem "rubocop", "~> 0.32"
 end
 
