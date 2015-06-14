@@ -37,12 +37,12 @@ class Phone < ActiveRecord::Base
     self.verified
   end
 
-  def self.send_verification(msg)
+  def self.send_verification(phone_id, method = :sms)
     twilio_account = Twilio::REST::Client.new(ENV["TWILIO_SID"], ENV["TWILIO_TOKEN"]).account
 
-    phone = Phone.find(msg[:phone_id])
+    phone = Phone.find(phone_id)
 
-    if msg[:method] == :call
+    if method == :call
       twilio_account.calls.create(
         from: ENV["TWILIO_PHONE"],
         to: phone.twilio_formatted,

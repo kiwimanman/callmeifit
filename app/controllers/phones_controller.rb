@@ -25,8 +25,7 @@ class PhonesController < ApplicationController
     @phone.generate_verification_token
     @phone.save
 
-    msg = { method: (params[:call] ? :call : :sms), phone_id: @phone.id }
-    PhoneVerificationWorker.perform_async(msg)
+    PhoneVerificationWorker.perform_async(@phone.id, params[:call] ? :call : :sms)
 
     redirect_to @logged_in_user
   end

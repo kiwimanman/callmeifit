@@ -1,7 +1,7 @@
 class PhoneVerificationWorker
   include Sidekiq::Worker
 
-  def perform(msg)
-    Phone.send_verification(msg)
+  def perform(phone_id, method)
+    Phone.send_verification(phone_id, method.to_sym)
   end
 end
