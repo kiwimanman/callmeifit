@@ -1,3 +1,5 @@
+require "sidekiq/web"
+
 Callmeifit::Application.routes.draw do
   root to: "application#home"
   resources :launches
@@ -27,4 +29,9 @@ Callmeifit::Application.routes.draw do
   get "/auth/logout", to: "sessions#logout", as: "logout"
 
   resources :emails, only: :create
+
+  Sidekiq::Web.use Rack::Auth::Basic do |username, password|
+    username == ENV["HTTP_USER"] && password == ENV["HTTP_PASSWORD"]
+  end if Rails.env.production?
+  mount Sidekiq::Web, at: "/sidekiq"
 end
