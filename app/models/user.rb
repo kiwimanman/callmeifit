@@ -11,4 +11,12 @@ class User < ActiveRecord::Base
     phones.find(&:verified?)
   end
   alias_method :verified_phone?, :verified_phone
+
+  def admin?
+    role == 'admin'
+  end
+
+  def logged_in?
+    id.present?
+  end
 end

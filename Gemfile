@@ -1,8 +1,6 @@
 source "https://rubygems.org"
 
-ruby "2.2.2"
-
-gem "rails", "~> 4.0.0"
+gem "rails", "~> 4.2"
 
 gem "foreman", "~> 0.78"
 gem "pg"
@@ -12,6 +10,8 @@ gem "nokogiri"
 gem "twilio-ruby"
 gem "newrelic_rpm"
 gem "dotenv-rails", "~> 2.0", ">= 2.0.1"
+gem "passenger", '~> 5.0'
+gem 'cancancan', '~> 1.10'
 
 # Background working
 gem "redis"
@@ -53,3 +53,4 @@ end
 # gem 'jbuilder'
 
 gem "byebug"
+gem "ruby-debug-passenger"

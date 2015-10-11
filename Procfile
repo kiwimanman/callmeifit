@@ -1,2 +1,2 @@
-web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb
+web: bundle exec passenger start -p $PORT
 sidekiq: bundle exec sidekiq

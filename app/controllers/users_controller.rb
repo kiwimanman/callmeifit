@@ -1,9 +1,14 @@
 class UsersController < ApplicationController
-  before_filter :require_logged_in_user
+  load_and_authorize_resource
 
-  http_basic_authenticate_with name: ENV["HTTP_USER"], password: ENV["HTTP_PASSWORD"], only: :all if Rails.env.production?
+  before_action :require_logged_in_user
+  before_action :require_admin, except: :show
 
-  def all
-    @users = User.all
+  def show
+    @user = @users.first
+  end
+
+  def index
+
   end
 end

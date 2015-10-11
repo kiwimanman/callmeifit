@@ -3,11 +3,7 @@ require "sidekiq/web"
 Callmeifit::Application.routes.draw do
   root to: "application#home"
   resources :launches
-  resource :user do
-    collection do
-      get "all"
-    end
-  end
+  resource :user
   resources :phones do
     collection do
       post "with_code/:code" => "phones#with_code", :as => "with_code"
@@ -29,6 +25,10 @@ Callmeifit::Application.routes.draw do
   get "/auth/logout", to: "sessions#logout", as: "logout"
 
   resources :emails, only: :create
+
+  scope "admin" do
+    resources :users
+  end
 
   Sidekiq::Web.use Rack::Auth::Basic do |username, password|
     username == ENV["HTTP_USER"] && password == ENV["HTTP_PASSWORD"]

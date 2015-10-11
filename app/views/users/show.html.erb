@@ -1,8 +1,8 @@
 <div class="span12">
-  <h1><%= logged_in_user.name || 'Your account' %></h1>
+  <h1><%= @user.name || 'Your account' %></h1>
 </div>
 
-<% if logged_in_user.phones.blank? %>
+<% if @user.phones.blank? %>
   <div class="span12">
     <div class='alert alert-warning'>
       You don't have any phones! Add one below:
@@ -12,7 +12,7 @@
   <div class="span8">
     <table class="table table-striped table-hover">
       <tbody>
-      <% logged_in_user.phones.each do |phone| %>
+      <% @user.phones.each do |phone| %>
         <tr>
           <td><%= phone.number %></td>
           <td><%= render partial: 'phones/show_verification', object: phone, as: :phone %></td>
